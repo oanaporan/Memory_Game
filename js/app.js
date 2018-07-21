@@ -8,7 +8,8 @@ const deck = document.querySelector('.deck');
 const openCards = [];
 //List of matching cards
 const matchingCards = [];
-
+//Moves counter
+const moves = document.querySelector('.moves');
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
     var currentIndex = icons.length, temporaryValue, randomIndex;
@@ -34,7 +35,11 @@ function shuffle(icons) {
         //Flip card on click and add it to the list of open cards
         function flipCard() {
             this.classList.add('open','show');
-            openCards.push(this); 
+            openCards.push(this);
+            checkMatch();
+        }
+        
+        function checkMatch() {
             //Check if cards match 
             let firstCard = openCards[0];
             let secondCard = openCards[1];
@@ -47,7 +52,7 @@ function shuffle(icons) {
                     openCards.splice(0, 2);
                     //add the matching cards to the matching cards array
                     matchingCards.push(firstCard, secondCard);
-            //If the two cards do not match, flip them back
+            //If the two cards do not match, wait 600ms andflip them back
                 } else {
                     setTimeout(function(){
                         firstCard.classList.remove('show', 'open');
