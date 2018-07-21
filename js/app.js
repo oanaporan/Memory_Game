@@ -4,14 +4,8 @@ const cards = document.querySelectorAll('.card');
 const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle","fa fa-bomb", "fa fa-bomb", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube"];
 //Deck of cards
 const deck = document.querySelector('.deck');
-//List of open cards
-let openCards = [];
-/*
- * Display the cards on the page
- *   - shuffle the list of cards using the provided "shuffle" method below
- *   - loop through each card and create its HTML
- *   - add each card's HTML to the page
- */
+//List of open cards for checking match
+const openCards = [];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -28,19 +22,41 @@ function shuffle(icons) {
     return icons;
 }
 //Display cards on deck:
-    //shuffle(icons);
     for (let i=0; i<icons.length; i++) {
         const card = document.createElement('li');
         card.classList.add('card');
         card.innerHTML = `<i class='${icons[i]}'</i>`;
         deck.appendChild(card);
-
-//Flip card on click and add it to the list of open cards
-        card.addEventListener('click', function(){
-            card.classList.add('open','show');
-            openCards.push(card);
-        })
-    }
+        card.addEventListener('click', flipCard);
+    }    
+        //Flip card on click and add it to the list of open cards
+        function flipCard() {
+            this.classList.add('open','show');
+            openCards.push(this); 
+            //Check if cards match 
+            let firstCard = openCards[0];
+            let secondCard = openCards[1];
+            //If there are two cards open and match then add class match
+            if (openCards.length > 0) {
+                if (firstCard.innerHTML === secondCard.innerHTML){
+                    firstCard.classList.add('match');
+                    secondCard.classList.add('match');
+                    openCards.splice(0, 2);
+            //If the two cards do not match, flip them back
+                } else {
+                    setTimeout(function(){
+                        firstCard.classList.remove('show', 'open');
+                        secondCard.classList.remove('show', 'open');
+                        openCards.splice(0, 2);
+                    }, 600);
+                }
+            //If there is only one card open, then add it to the open cards array
+            } else {
+                openCards.push(this);    
+            }
+          
+        }
+        
 
 
 /*
