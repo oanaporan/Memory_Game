@@ -68,13 +68,13 @@ function startGame () {
                 openCards.push(this);    
             }
         }
-        function gameOver() {
-            if (openCards.length === matchingCards.length) {
-                window.alert('Congradulations!');
-            }
-        }
+function gameOver() {
+    if (openCards.length === matchingCards.length) {
+        window.alert('Congradulations!');
+     }
+}
 
-//Start Game when on load
+//Start Game on load
 startGame();   
 
 
