@@ -1,9 +1,8 @@
-/*
- * Create a list that holds all of your cards
- */
+//List that holds all of cards:
 const cards = document.querySelectorAll('.card');
+//Array of all cards icons:
 const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor","fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle","fa fa-bomb", "fa fa-bomb", "fa fa-bolt", "fa fa-bolt", "fa fa-cube","fa fa-cube"];
-
+//Deck of cards:
 const deck = document.querySelector('.deck');
 /*
  * Display the cards on the page
@@ -13,19 +12,30 @@ const deck = document.querySelector('.deck');
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+function shuffle(icons) {
+    var currentIndex = icons.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        temporaryValue = array[currentIndex];
-        array[currentIndex] = array[randomIndex];
-        array[randomIndex] = temporaryValue;
+        temporaryValue = icons[currentIndex];
+        icons[currentIndex] = icons[randomIndex];
+        icons[randomIndex] = temporaryValue;
     }
 
-    return array;
+    return icons;
 }
+
+function newDeck() {
+    shuffle(icons);
+    for (i=0; i<=icons.length; i++) {
+        let card = document.createElement('li');
+        card.setAttribute('.card');
+        card.innerHTML('<i class='+icons[i]+'></i>');
+        deck.appendChild(card);
+    }
+};
+
 
 
 /*
