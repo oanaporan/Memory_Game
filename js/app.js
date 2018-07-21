@@ -24,6 +24,8 @@ function shuffle(icons) {
 
     return icons;
 }
+//Start Game
+function startGame () {
 //Display cards on deck:
     for (let i=0; i<icons.length; i++) {
         const card = document.createElement('li');
@@ -31,16 +33,16 @@ function shuffle(icons) {
         card.innerHTML = `<i class='${icons[i]}'</i>`;
         deck.appendChild(card);
         card.addEventListener('click', flipCard);
-    }    
+    }  
+}  
         //Flip card on click and add it to the list of open cards
         function flipCard() {
             this.classList.add('open','show');
             openCards.push(this);
             checkMatch();
         }
-        
+        //Check if cards match 
         function checkMatch() {
-            //Check if cards match 
             let firstCard = openCards[0];
             let secondCard = openCards[1];
             //If there are two cards open and they match then add class match
@@ -65,9 +67,15 @@ function shuffle(icons) {
             } else {
                 openCards.push(this);    
             }
-          
         }
-        
+        function gameOver() {
+            if (openCards.length === matchingCards.length) {
+                window.alert('Congradulations!');
+            }
+        }
+
+//Start Game when on load
+startGame();   
 
 
 /*
