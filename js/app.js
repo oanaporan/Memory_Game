@@ -4,8 +4,10 @@ const cards = document.querySelectorAll('.card');
 const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle","fa fa-bomb", "fa fa-bomb", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube"];
 //Deck of cards
 const deck = document.querySelector('.deck');
-//List of open cards for checking match
+//List of open cards for checking if cards match
 const openCards = [];
+//List of matching cards
+const matchingCards = [];
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -36,17 +38,21 @@ function shuffle(icons) {
             //Check if cards match 
             let firstCard = openCards[0];
             let secondCard = openCards[1];
-            //If there are two cards open and match then add class match
+            //If there are two cards open and they match then add class match
             if (openCards.length > 0) {
                 if (firstCard.innerHTML === secondCard.innerHTML){
                     firstCard.classList.add('match');
                     secondCard.classList.add('match');
+                    //remove the cards matched from the open cards array
                     openCards.splice(0, 2);
+                    //add the matching cards to the matching cards array
+                    matchingCards.push(firstCard, secondCard);
             //If the two cards do not match, flip them back
                 } else {
                     setTimeout(function(){
                         firstCard.classList.remove('show', 'open');
                         secondCard.classList.remove('show', 'open');
+                        //remove the cards that do not match from the open cards array
                         openCards.splice(0, 2);
                     }, 600);
                 }
