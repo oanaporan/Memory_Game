@@ -1,9 +1,11 @@
 //List that holds all of cards:
 const cards = document.querySelectorAll('.card');
-//Array of all cards icons:
-const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor","fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle","fa fa-bomb", "fa fa-bomb", "fa fa-bolt", "fa fa-bolt", "fa fa-cube","fa fa-cube"];
-//Deck of cards:
+//Array of all cards icons
+const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle","fa fa-bomb", "fa fa-bomb", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube"];
+//Deck of cards
 const deck = document.querySelector('.deck');
+//List of open cards
+let openCards = [];
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -25,14 +27,20 @@ function shuffle(icons) {
 
     return icons;
 }
+//Display cards on deck:
     //shuffle(icons);
     for (let i=0; i<icons.length; i++) {
         const card = document.createElement('li');
         card.classList.add('card');
-        card.innerHTML = '<i class='+icons[i]+'></i>';
+        card.innerHTML = `<i class='${icons[i]}'</i>`;
         deck.appendChild(card);
-    }
 
+//Flip card on click and add it to the list of open cards
+        card.addEventListener('click', function(){
+            card.classList.add('open','show');
+            openCards.push(card);
+        })
+    }
 
 
 /*
