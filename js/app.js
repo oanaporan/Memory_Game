@@ -25,16 +25,13 @@ function shuffle(icons) {
 
     return icons;
 }
-
-function newDeck() {
-    shuffle(icons);
-    for (i=0; i<=icons.length; i++) {
-        let card = document.createElement('li');
-        card.setAttribute('.card');
-        card.innerHTML('<i class='+icons[i]+'></i>');
+    //shuffle(icons);
+    for (let i=0; i<icons.length; i++) {
+        const card = document.createElement('li');
+        card.classList.add('card');
+        card.innerHTML = '<i class='+icons[i]+'></i>';
         deck.appendChild(card);
     }
-};
 
 
 
