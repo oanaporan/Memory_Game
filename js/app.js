@@ -10,6 +10,10 @@ const openCards = [];
 const matchingCards = [];
 //Moves counter
 const moves = document.querySelector('.moves');
+//restart button
+const restart = document.querySelector('.restart');
+
+
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
     var currentIndex = icons.length, temporaryValue, randomIndex;
@@ -27,6 +31,7 @@ function shuffle(icons) {
 //Start Game
 function startGame () {
 //Display cards on deck:
+    shuffle(icons);
     for (let i=0; i<icons.length; i++) {
         const card = document.createElement('li');
         card.classList.add('card');
@@ -37,6 +42,7 @@ function startGame () {
 }  
         //Flip card on click and add it to the list of open cards
         function flipCard() {
+
             this.classList.add('open','show');
             openCards.push(this);
             checkMatch();
@@ -54,7 +60,7 @@ function startGame () {
                     openCards.splice(0, 2);
                     //add the matching cards to the matching cards array
                     matchingCards.push(firstCard, secondCard);
-            //If the two cards do not match, wait 600ms andflip them back
+            //If the two cards do not match, wait 600ms and flip them back
                 } else {
                     setTimeout(function(){
                         firstCard.classList.remove('show', 'open');
@@ -67,15 +73,24 @@ function startGame () {
             } else {
                 openCards.push(this);    
             }
+            gameOver();
         }
 function gameOver() {
-    if (openCards.length === matchingCards.length) {
-        window.alert('Congradulations!');
-     }
+        if (matchingCards.length === 16) {
+            window.alert('Congradulations!');
+         }
 }
 
+//restart Game
+//restart.addEventListener('click', function(){
+    //deck.restart;
+
+
+//})
+
 //Start Game on load
-startGame();   
+startGame(); 
+  
 
 
 /*

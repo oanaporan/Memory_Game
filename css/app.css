@@ -69,11 +69,14 @@ h1 {
     transform: rotateY(0);
     background: #02b3e4;
     cursor: default;
+    pointer-events: none;
 }
 
 .deck .card.show {
     font-size: 33px;
 }
+
+
 
 .deck .card.match {
     cursor: default;
