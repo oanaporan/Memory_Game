@@ -6,12 +6,18 @@ const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-p
 const deck = document.querySelector('.deck');
 //List of open cards for checking if cards match
 const openCards = [];
+//Moves counter
+const movesCounter = document.querySelector('#moves');
+//restart button
+const restart = document.querySelector('.restart');
 //List of matching cards
 const matchingCards = [];
 
-//restart button
-const restart = document.querySelector('.restart');
-
+//Start Game for the first time
+function startGame () {
+    shuffle(icons);
+    displayCards();
+}  
 
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -27,23 +33,20 @@ function shuffle(icons) {
 
     return icons;
 }
-//Start Game for the first time
-function startGame () {
-//Display cards on deck:
-    shuffle(icons);
+//Display cards on deck
+function displayCards() {
     for (let i=0; i<icons.length; i++) {
         const card = document.createElement('li');
         card.classList.add('card');
         card.innerHTML = `<i class='${icons[i]}'</i>`;
         deck.appendChild(card);
         card.addEventListener('click', flipCard);
+}
     }  
-}  
+//Flip card
         function flipCard() { 
-            //show card 
-            this.classList.add('open','show');
-            //add opened card to the openCards array
-            openCards.push(this);
+            this.classList.add('open','show');//show card 
+            openCards.push(this);//add opened card to the openCards array
             checkMatch();
         }
         //Check if cards match 
@@ -74,32 +77,24 @@ function startGame () {
             } else {
                 openCards.push(this);    
             }
-           
-
             gameOver();
         }
-        //Moves counter
-        const movesCounter = document.querySelector('#moves');
-        let moves = 0;
-        function addMoves() {
-            moves ++ ;
-            movesCounter.innerHTML= moves;
-
+//Moves counter
+let moves = 0;
+function addMoves() {
+        moves ++ ;
+        movesCounter.innerHTML= moves;
         }
-      
-        function gameOver() {
-            if (matchingCards.length === icons.length) {
-                window.alert('Congradulations!');
+//Game Over
+function gameOver() {
+     if (matchingCards.length === icons.length) {
+         window.alert('Congradulations!');
              }
-    }
+        }
+//Restart game
 
 
-//restart Game
-//restart.addEventListener('click', function(){
-    //deck.restart;
 
-
-//})
 
 //Start Game on load
 startGame(); 
