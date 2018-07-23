@@ -104,6 +104,7 @@ restart.addEventListener('click', function(){
     displayCards();
     movesCounter.innerHTML = 0;
     moves = 0;
+    starScoring();
 })
 
 //Stars Scoring
