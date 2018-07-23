@@ -13,12 +13,12 @@ const restart = document.querySelector('.restart');
 //List of matching cards
 const matchingCards = [];
 
+
 //Start Game for the first time
 function startGame () {
     shuffle(icons);
     displayCards();
 }  
-
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
     var currentIndex = icons.length, temporaryValue, randomIndex;
@@ -70,7 +70,7 @@ function displayCards() {
                         //remove the cards that do not match from the open cards array
                         openCards.splice(0, 2);
                     }, 600);
-                    //Increase moves counter for every pair of cards checked
+                    //Increase moves counter for every pair of cards flipped
                     addMoves();
                 }
             //If there is only one card open, then add it to the open cards array
@@ -82,8 +82,8 @@ function displayCards() {
 //Moves counter
 let moves = 0;
 function addMoves() {
-        moves ++ ;
-        movesCounter.innerHTML= moves;
+    moves ++ ;
+    movesCounter.innerHTML= moves;
         }
 //Game Over
 function gameOver() {
@@ -92,6 +92,15 @@ function gameOver() {
              }
         }
 //Restart game
+restart.addEventListener('click', function(){
+    deck.innerHTML = '';
+    shuffle(icons);
+    displayCards();
+    movesCounter.innerHTML = 0;
+    moves = 0;
+})
+
+
 
 
 
