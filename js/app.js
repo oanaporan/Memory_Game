@@ -8,8 +8,7 @@ const deck = document.querySelector('.deck');
 const openCards = [];
 //List of matching cards
 const matchingCards = [];
-//Moves counter
-const moves = document.querySelector('.moves');
+
 //restart button
 const restart = document.querySelector('.restart');
 
@@ -28,7 +27,7 @@ function shuffle(icons) {
 
     return icons;
 }
-//Start Game
+//Start Game for the first time
 function startGame () {
 //Display cards on deck:
     shuffle(icons);
@@ -40,10 +39,10 @@ function startGame () {
         card.addEventListener('click', flipCard);
     }  
 }  
-        //Flip card on click and add it to the list of open cards
-        function flipCard() {
-
+        function flipCard() { 
+            //show card 
             this.classList.add('open','show');
+            //add opened card to the openCards array
             openCards.push(this);
             checkMatch();
         }
@@ -52,7 +51,7 @@ function startGame () {
             let firstCard = openCards[0];
             let secondCard = openCards[1];
             //If there are two cards open and they match then add class match
-            if (openCards.length > 0) {
+            if (openCards.length = 1) {
                 if (firstCard.innerHTML === secondCard.innerHTML){
                     firstCard.classList.add('match');
                     secondCard.classList.add('match');
@@ -68,18 +67,32 @@ function startGame () {
                         //remove the cards that do not match from the open cards array
                         openCards.splice(0, 2);
                     }, 600);
+                    //Increase moves counter for every pair of cards checked
+                    addMoves();
                 }
             //If there is only one card open, then add it to the open cards array
             } else {
                 openCards.push(this);    
             }
+           
+
             gameOver();
         }
-function gameOver() {
-        if (matchingCards.length === 16) {
-            window.alert('Congradulations!');
-         }
-}
+        //Moves counter
+        const movesCounter = document.querySelector('#moves');
+        let moves = 0;
+        function addMoves() {
+            moves ++ ;
+            movesCounter.innerHTML= moves;
+
+        }
+      
+        function gameOver() {
+            if (matchingCards.length === icons.length) {
+                window.alert('Congradulations!');
+             }
+    }
+
 
 //restart Game
 //restart.addEventListener('click', function(){
