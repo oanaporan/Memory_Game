@@ -12,6 +12,8 @@ const movesCounter = document.querySelector('#moves');
 const restart = document.querySelector('.restart');
 //List of matching cards
 const matchingCards = [];
+//Score Panel
+const score = document.querySelector('.stars');
 
 
 //Start Game for the first time
@@ -43,11 +45,13 @@ function displayCards() {
         card.addEventListener('click', flipCard);
 }
     }  
-//Flip card
+        //Flip card
         function flipCard() { 
             this.classList.add('open','show');//show card 
             openCards.push(this);//add opened card to the openCards array
             checkMatch();
+            starScoring();
+            
         }
         //Check if cards match 
         function checkMatch() {
@@ -102,6 +106,17 @@ restart.addEventListener('click', function(){
     moves = 0;
 })
 
+//Stars Scoring
+function starScoring() {
+    switch(moves) {
+        //if player makes more than 16 moves then reduce star rating to 2 out of 3
+        case 16: score.innerHTML = '<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>'; 
+        break;
+        //if player makes more than 22 moves then reduce star rating to 1 out of 3
+        case 22: score.innerHTML = '<li><i class="fa fa-star"></i></li>';
+        break;
+    }
+}
 
 
 
