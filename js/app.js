@@ -54,7 +54,7 @@ function displayCards() {
             let firstCard = openCards[0];
             let secondCard = openCards[1];
             //If there are two cards open and they match then add class match
-            if (openCards.length = 1) {
+            if (openCards.length > 0) {
                 if (firstCard.innerHTML === secondCard.innerHTML){
                     firstCard.classList.add('match');
                     secondCard.classList.add('match');
@@ -62,6 +62,8 @@ function displayCards() {
                     openCards.splice(0, 2);
                     //add the matching cards to the matching cards array
                     matchingCards.push(firstCard, secondCard);
+                     //Increase moves counter for every pair of cards flipped
+              addMoves();
             //If the two cards do not match, wait 600ms and flip them back
                 } else {
                     setTimeout(function(){
@@ -70,8 +72,8 @@ function displayCards() {
                         //remove the cards that do not match from the open cards array
                         openCards.splice(0, 2);
                     }, 600);
-                    //Increase moves counter for every pair of cards flipped
-                    addMoves();
+                   //Increase moves counter for every pair of cards flipped
+              addMoves();
                 }
             //If there is only one card open, then add it to the open cards array
             } else {
