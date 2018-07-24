@@ -14,12 +14,15 @@ const restart = document.querySelector('.restart');
 const matchingCards = [];
 //Score Panel
 const score = document.querySelector('.stars');
+//Timer
+const timer = document.querySelector('#timer');
 
 
 //Start Game for the first time
 function startGame () {
     shuffle(icons);
     displayCards();
+    timerStart();
 }  
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -119,6 +122,23 @@ function starScoring() {
     }
 }
 
+//Timer
+let gameTimer,
+seconds = 0;
+timer.innerHTML = 'Timer ' + seconds;//default variable for the timer
+//Start Timer
+function startTimer() {
+    gameTimer = setInterval(function() {
+        // Increase the totalSeconds by 1
+        seconds++;
+        // Update the HTML Container with the new time
+        timer.innerHTML = 'timer '+ seconds;
+    }, 1000);
+}
+//Stop Timer
+function stopTimer() {
+    clearInterval(timer);
+}
 
 
 
