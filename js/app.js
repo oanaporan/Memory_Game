@@ -5,26 +5,25 @@ const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-p
 //Deck of cards
 const deck = document.querySelector('.deck');
 //List of open cards for checking if cards match
-const openCards = [];
+let openCards = [];
 //Moves counter
 const movesCounter = document.querySelector('#moves');
 //restart button
 const restart = document.querySelector('.restart');
 //List of matching cards
-const matchingCards = [];
+let matchingCards = [];
 //Score Panel
 const score = document.querySelector('.stars');
 //Timer
 const timer = document.querySelector('#timer');
 // first click
-const firstClick = true;
+let firstClick = true;
 
 
 //Start Game for the first time
 function startGame () {
     shuffle(icons);
     displayCards();
-    startTimer();
 }  
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -55,7 +54,11 @@ function displayCards() {
             this.classList.add('open','show');//show card 
             openCards.push(this);//add opened card to the openCards array
             checkMatch();
-            starScoring();  
+            starScoring();
+            if (firstClick) {
+                startTimer();
+                firstClick = false;
+            }
         }
         //Check if cards match 
         function checkMatch() {
@@ -122,6 +125,8 @@ function restartGame() {
     //reset the star scoring
     score.innerHTML = star + star + star;
     //start timer
+    minutes = 0;
+    seconds = 0;
     startTimer();
 }
 
@@ -140,8 +145,8 @@ function starScoring() {
 
 //Timer
 let gameTimer,
-seconds = 00;
-minutes = 00;
+seconds = 0;
+minutes = 0;
 timer.innerHTML = 'Timer: min'+ minutes+'  '+ 'sec.  '+ seconds;//default variable for the timer
 //Start Timer
 function startTimer() {
@@ -152,7 +157,7 @@ function startTimer() {
             minutes++;
             seconds = 00;
         }
-        // Update the HTML Container with the new time
+        // Update the timer with the new time
     timer.innerHTML = 'Timer: min.  '+ minutes+'  '+ 'sec.  '+ seconds;
     }, 1000);  
 }
