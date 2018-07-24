@@ -83,6 +83,10 @@ h1 {
     background: #02ccba;
     font-size: 33px;
 }
+.deck .card.nomatch {
+    background: rgb(187, 33, 33);
+    font-size: 33px;
+  }
 
 /*
  * Styles for the Score Panel
@@ -111,5 +115,5 @@ h1 {
     cursor: pointer;
 }
 .score-panel .timer {
-    float: left;
+    float: right;
 }

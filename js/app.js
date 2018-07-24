@@ -24,6 +24,7 @@ const firstClick = true;
 function startGame () {
     shuffle(icons);
     displayCards();
+    startTimer();
 }  
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -73,9 +74,11 @@ function displayCards() {
               addMoves();
             //If the two cards do not match, wait 600ms and flip them back
                 } else {
+                    firstCard.classList.add('nomatch');
+                    secondCard.classList.add('nomatch');
                     setTimeout(function(){
-                        firstCard.classList.remove('show', 'open');
-                        secondCard.classList.remove('show', 'open');
+                        firstCard.classList.remove('nomatch', 'open', 'show');
+                        secondCard.classList.remove('nomatch', 'open', 'show');
                         //remove the cards that do not match from the open cards array
                         openCards.splice(0, 2);
                     }, 500);
