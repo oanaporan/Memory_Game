@@ -102,14 +102,26 @@ function gameOver() {
              stopTimer();
         }
 //Restart game
+function restartGame() {
 restart.addEventListener('click', function(){
+    //clean deck of cards
     deck.innerHTML = '';
+    //shuffle cards
     shuffle(icons);
+    //display new cards on deck
     displayCards();
+    //reset the moves counter
     movesCounter.innerHTML = 0;
     moves = 0;
+    //reset the star scoring
     score.innerHTML = star + star + star;
+    //restart timer
+    timer.innerHTML = 'Timer: min'+ minutes+'  '+ 'sec.  '+ seconds;
+    seconds = 0;
+    minutes = 0;
+
 })
+}
 
 //Stars Scoring
 const star = '<li><i class="fa fa-star"></i></li>';
@@ -126,17 +138,23 @@ function starScoring() {
 
 //Timer
 let gameTimer,
-seconds = 0;
-timer.innerHTML = 'Timer ' + seconds;//default variable for the timer
+seconds = 00;
+minutes = 00;
+timer.innerHTML = 'Timer: min'+ minutes+'  '+ 'sec.  '+ seconds;//default variable for the timer
 //Start Timer
 function startTimer() {
     gameTimer = setInterval(function() {
         // Increase the totalSeconds by 1
         seconds++;
+        if (seconds > 59) {
+            minutes++;
+            seconds = 00;
+        }
         // Update the HTML Container with the new time
-        timer.innerHTML = 'timer '+ seconds;
-    }, 1000);
+    timer.innerHTML = 'Timer: min.  '+ minutes+'  '+ 'sec.  '+ seconds;
+    }, 1000);  
 }
+
 //Stop Timer
 function stopTimer() {
     clearInterval(timer);
