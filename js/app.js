@@ -22,7 +22,7 @@ const timer = document.querySelector('#timer');
 function startGame () {
     shuffle(icons);
     displayCards();
-    timerStart();
+    startTimer();
 }  
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -53,7 +53,7 @@ function displayCards() {
             this.classList.add('open','show');//show card 
             openCards.push(this);//add opened card to the openCards array
             checkMatch();
-            starScoring();
+            starScoring()
             
         }
         //Check if cards match 
@@ -99,6 +99,7 @@ function gameOver() {
      if (matchingCards.length === icons.length) {
          window.alert('Congradulations!');
              }
+             stopTimer();
         }
 //Restart game
 restart.addEventListener('click', function(){
