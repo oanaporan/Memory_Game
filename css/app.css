@@ -42,7 +42,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: linear-gradient(160deg, #a39258 0%, #bf6c5d 100%);
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -69,7 +69,7 @@ h1 {
 
 .deck .card.open {
     transform: rotateY(0);
-    background: #02b3e4;
+    background: #58848c;
     cursor: default;
     pointer-events: none;
 }
@@ -82,11 +82,11 @@ h1 {
 
 .deck .card.match {
     cursor: default;
-    background: #02ccba;
+    background: #588c72;
     font-size: 33px;
 }
 .deck .card.nomatch {
-    background: rgb(187, 33, 33);
+    background: rgb(187, 131, 131);
     font-size: 33px;
   }
 
