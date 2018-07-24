@@ -122,12 +122,16 @@ function restartGame() {
     //reset the moves counter
     movesCounter.innerHTML = 0;
     moves = 0;
+    //clear the matching cards array
+    matchingCards = [];
     //reset the star scoring
-    score.innerHTML = star + star + star;
+    score.innerHTML = star + star + star;    
     //start timer
+    stopTimer();
     minutes = 0;
     seconds = 0;
-    startTimer();
+    firstClick = true;
+    timer.innerHTML = 'Timer: min'+ minutes+'  '+ 'sec.  '+ seconds;
 }
 
 //Stars Scoring
