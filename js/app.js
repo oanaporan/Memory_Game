@@ -108,17 +108,18 @@ restart.addEventListener('click', function(){
     displayCards();
     movesCounter.innerHTML = 0;
     moves = 0;
-    score.innerHTML = '<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>'
+    score.innerHTML = star + star + star;
 })
 
 //Stars Scoring
+const star = '<li><i class="fa fa-star"></i></li>';
 function starScoring() {
     switch(moves) {
         //if player makes more than 16 moves then reduce star rating to 2 out of 3
-        case 16: score.innerHTML = '<li><i class="fa fa-star"></i></li><li><i class="fa fa-star"></i></li>'; 
+        case 16: score.innerHTML = star + star; 
         break;
         //if player makes more than 22 moves then reduce star rating to 1 out of 3
-        case 22: score.innerHTML = '<li><i class="fa fa-star"></i></li>';
+        case 22: score.innerHTML = star;
         break;
     }
 }
