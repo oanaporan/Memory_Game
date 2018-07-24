@@ -16,13 +16,14 @@ const matchingCards = [];
 const score = document.querySelector('.stars');
 //Timer
 const timer = document.querySelector('#timer');
+// first click
+const firstClick = true;
 
 
 //Start Game for the first time
 function startGame () {
     shuffle(icons);
     displayCards();
-    startTimer();
 }  
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
@@ -47,14 +48,13 @@ function displayCards() {
         deck.appendChild(card);
         card.addEventListener('click', flipCard);
 }
-    }  
+    } 
         //Flip card
         function flipCard() { 
             this.classList.add('open','show');//show card 
             openCards.push(this);//add opened card to the openCards array
             checkMatch();
-            starScoring()
-            
+            starScoring();  
         }
         //Check if cards match 
         function checkMatch() {
@@ -78,7 +78,7 @@ function displayCards() {
                         secondCard.classList.remove('show', 'open');
                         //remove the cards that do not match from the open cards array
                         openCards.splice(0, 2);
-                    }, 600);
+                    }, 500);
                    //Increase moves counter for every pair of cards flipped
               addMoves();
                 }
@@ -96,14 +96,17 @@ function addMoves() {
         }
 //Game Over
 function gameOver() {
-     if (matchingCards.length === icons.length) {
-         window.alert('Congradulations!');
-             }
-             stopTimer();
-        }
+    setTimeout(function () {
+        if (matchingCards.length === icons.length) {
+            window.alert('Congradulations!');
+                }
+                stopTimer();
+           }, 400)
+    };
+  
 //Restart game
+restart.addEventListener('click', restartGame);
 function restartGame() {
-restart.addEventListener('click', function(){
     //clean deck of cards
     deck.innerHTML = '';
     //shuffle cards
@@ -115,12 +118,8 @@ restart.addEventListener('click', function(){
     moves = 0;
     //reset the star scoring
     score.innerHTML = star + star + star;
-    //restart timer
-    timer.innerHTML = 'Timer: min'+ minutes+'  '+ 'sec.  '+ seconds;
-    seconds = 0;
-    minutes = 0;
-
-})
+    //start timer
+    startTimer();
 }
 
 //Stars Scoring
@@ -160,21 +159,5 @@ function stopTimer() {
     clearInterval(timer);
 }
 
-
-
-
 //Start Game on load
-startGame(); 
-  
-
-
-/*
- * set up the event listener for a card. If a card is clicked:
- *  - display the card's symbol (put this functionality in another function that you call from this one)
- *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
- *  - if the list already has another card, check to see if the two cards match
- *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
- *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
- *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
- *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
- */
+startGame();
