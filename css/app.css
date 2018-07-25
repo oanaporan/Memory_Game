@@ -19,8 +19,8 @@ body {
 body {
     background: #ffffff url('../img/cartoon-styles-templates.jpg'); /* Background from pptbackgroundstemplates */
     background-size:cover;
-    position:absolute;
-    font-family: 'Coda', cursive;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
 }
 
 .container {
@@ -31,8 +31,9 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    margin-top: 15%;
 }
 
 /*
@@ -95,16 +96,21 @@ h1 {
  */
 
 .score-panel {
-    text-align: left;
+    text-align: center;
     width: 345px;
     margin-bottom: 10px;
+    margin-top: 0;
+    font-weight: 600;
+
 }
 
 .score-panel .stars {
+    color: #bf6c5d;
     margin: 0;
-    padding: 0;
+    padding-right: 0.5em;
+    padding-left: 0.5em;
     display: inline-block;
-    margin: 0 5px 0 0;
+    margin: 0 1.5px 0 0;
 }
 
 .score-panel .stars li {
@@ -115,7 +121,41 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+    background: #588c72;
 }
 .score-panel .timer {
-    float: right;
+    display: inline-block;
+}
+
+/*
+ * Styles for the Message Panel when game is over
+ */
+.message {
+    width: 350px;
+    height: 300px;
+    border-radius: 5%;
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 3%;
+    z-index: 100;
+    background: #588c72;
+    opacity: 0.9;
+   
+    justify-content: center;
+    align-items: center;
+
+}
+.message .newGame {
+    
+    width: 150px;
+    height: 48px;
+    text-align: center;
+    margin-top: 60%;
+    margin-left: 30%;
+    border-radius: 10%;
+    border:none;
+    background: #2e3d49;
+    color: #ffffff;
+    font-size: 1em;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }

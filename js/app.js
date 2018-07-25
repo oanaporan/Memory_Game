@@ -15,7 +15,7 @@ let matchingCards = [];
 //Score Panel
 const score = document.querySelector('.stars');
 //Timer
-const timer = document.querySelector('#timer');
+const timer = document.querySelector('.timer');
 // first click
 let firstClick = true;
 
@@ -131,7 +131,7 @@ function restartGame() {
     minutes = 0;
     seconds = 0;
     firstClick = true;
-    timer.innerHTML = 'Timer: min'+ minutes+'  '+ 'sec.  '+ seconds;
+    timer.innerHTML = 'Time: min  '+ minutes+'  '+ 'sec.  '+ seconds+'  ';
 }
 
 //Stars Scoring
@@ -151,7 +151,7 @@ function starScoring() {
 let gameTimer,
 seconds = 0;
 minutes = 0;
-timer.innerHTML = 'Timer: min'+ minutes+'  '+ 'sec.  '+ seconds;//default variable for the timer
+timer.innerHTML = 'Time: min  '+ minutes+'  '+ 'sec.  '+ seconds+'  ';//default variable for the timer
 //Start Timer
 function startTimer() {
     gameTimer = setInterval(function() {
