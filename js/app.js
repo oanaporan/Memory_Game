@@ -53,14 +53,15 @@ function displayCards() {
     }
         //Flip card
         function flipCard() {
-            this.classList.add('open','show');//show card
-            openCards.push(this);//add opened card to the openCards array
-            checkMatch();
-            starScoring();
             if (firstClick) {
                 startTimer();
                 firstClick = false;
             }
+            this.classList.add('open','show');//show card
+            openCards.push(this);//add opened card to the openCards array
+            checkMatch();
+            starScoring();
+            
         }
         //Check if cards match
         function checkMatch() {
