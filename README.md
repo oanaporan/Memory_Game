@@ -9,6 +9,10 @@ Match all cards in less time with less moves.
 ## Preview
 ![snippet](img/snippet.png)
 
+## Instalation
+1. Download the img, css, js folders and the index.html file.
+2. Open the index.html file in the browser. 
+
 ### Development Strategy: 
 * Memory Game Logic
 The game randomly shuffles the cards. A user wins once all cards have successfully been matched.
@@ -34,3 +38,4 @@ Onclick function reveals a card, adds it to an array of open cards them checks i
 
 ### Code
 Manipulating the DOM with Vanilla JS, altered the HTML and styled the game.
+Font-awesome and Google fonts used: 'Nunito', sans-serif.
