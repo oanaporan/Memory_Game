@@ -183,6 +183,9 @@ function startTimer() {
 function stopTimer() {
     clearInterval(gameTimer);
 }
+//New Game button from the congradulations module
+const newGame = document.querySelector('.newGame');
+newGame.addEventListener('click', startGame);
 
 //Start Game on load
 startGame();
