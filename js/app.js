@@ -117,6 +117,7 @@ function gameOver() {
 //Restart game
 restart.addEventListener('click', restartGame);
 function restartGame() {
+    openCards = [];
     //clean deck of cards
     deck.innerHTML = '';
     //shuffle cards
