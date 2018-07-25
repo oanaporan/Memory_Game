@@ -106,11 +106,12 @@ function addMoves() {
 function gameOver() {
     setTimeout(function () {
         if (matchingCards.length === icons.length) {
-            message.removeAttribute('style', 'display: none');
-                }
-                stopTimer();
-           }, 400)
-    };
+            message.setAttribute('style', 'display: flex');
+          stopTimer();
+        }
+           }, 400);
+    }
+
   
 //Restart game
 restart.addEventListener('click', restartGame);
@@ -134,10 +135,11 @@ function restartGame() {
     seconds = 0;
     firstClick = true;
     if (firstClick) {
-        startTimer;
+        startTimer();
         firstClick = false;
     }
     timer.innerHTML = 'Time: min  '+ minutes+'  '+ 'sec.  '+ seconds+'  ';
+    message.setAttribute('style', 'display: none');
 }
 
 //Stars Scoring

@@ -131,27 +131,29 @@ h1 {
  * Styles for the Message Panel when game is over
  */
 .message {
-    width: 350px;
-    height: 300px;
+ 
+    width: 660px;
+    min-height: 680px;
+    margin-top: 40px;
     border-radius: 5%;
     position: absolute;
-    margin-top: 3%;
-    margin-left: 3%;
     z-index: 100;
     background: #588c72;
+    color: #ffffff;
     opacity: 0.9;
-   
-    justify-content: center;
-    align-items: center;
-
+    flex-wrap: wrap;
 }
+
+.message .modal {
+    text-align: center
+}
+
 .message .newGame {
-    
     width: 150px;
     height: 48px;
+    margin-top: 20%;
+    margin-left: 40%; 
     text-align: center;
-    margin-top: 60%;
-    margin-left: 30%;
     border-radius: 10%;
     border:none;
     background: #2e3d49;
