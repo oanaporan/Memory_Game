@@ -18,6 +18,8 @@ const score = document.querySelector('.stars');
 const timer = document.querySelector('.timer');
 // first click
 let firstClick = true;
+//message/alert  when the game is over
+const message = document.querySelector('.message');
 
 
 //Start Game for the first time
@@ -104,7 +106,7 @@ function addMoves() {
 function gameOver() {
     setTimeout(function () {
         if (matchingCards.length === icons.length) {
-            window.alert('Congradulations!');
+            message.removeAttribute('style', 'display: none');
                 }
                 stopTimer();
            }, 400)
@@ -131,6 +133,10 @@ function restartGame() {
     minutes = 0;
     seconds = 0;
     firstClick = true;
+    if (firstClick) {
+        startTimer;
+        firstClick = false;
+    }
     timer.innerHTML = 'Time: min  '+ minutes+'  '+ 'sec.  '+ seconds+'  ';
 }
 
