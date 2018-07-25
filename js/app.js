@@ -139,6 +139,7 @@ function restartGame() {
         firstClick = false;
     }
     timer.innerHTML = 'Time: min  '+ minutes+'  '+ 'sec.  '+ seconds+'  ';
+    //do not display the game over message if the restart game is called from it
     message.setAttribute('style', 'display: none');
 }
 
@@ -176,7 +177,7 @@ function startTimer() {
 
 //Stop Timer
 function stopTimer() {
-    clearInterval(timer);
+    clearInterval(gameTimer);
 }
 
 //Start Game on load
