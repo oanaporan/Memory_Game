@@ -9,7 +9,7 @@ Match all cards in less time with less moves.
 ## Preview
 ![snippet](img/snippet.png)
 
-## Instalation
+## Installation
 1. Download the img, css, js folders and the index.html file.
 2. Open the index.html file in the browser. 
 
