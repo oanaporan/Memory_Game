@@ -1,7 +1,7 @@
 //List that holds all of cards:
 const cards = document.querySelectorAll('.card');
-//Array of all cards icons
-const icons = ["fa fa-diamond", "fa fa-diamond", "fa fa-paper-plane-o", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-anchor", "fa fa-leaf", "fa fa-leaf", "fa fa-bicycle", "fa fa-bicycle","fa fa-bomb", "fa fa-bomb", "fa fa-bolt", "fa fa-bolt", "fa fa-cube", "fa fa-cube"];
+const symbols = ["fa fa-diamond", "fa fa-paper-plane-o", "fa fa-anchor", "fa fa-bolt", "fa fa-cube", "fa fa-leaf", "fa fa-bicycle", "fa fa-bomb"]; // save all the initial symbols into one array.
+const icons = [...symbols, ...symbols];//spread sytax 
 //Deck of cards
 const deck = document.querySelector('.deck');
 //List of open cards for checking if cards match
@@ -138,7 +138,7 @@ function restartGame() {
         startTimer();
         firstClick = false;
     }
-    timer.innerHTML = 'Time: min  '+ minutes+'  '+ 'sec.  '+ seconds+'  ';
+    timer.innerHTML = 'Time: min '+ minutes+' '+ 'sec. '+ seconds+' ';
     //do not display the game over message if the restart game is called from it
     message.setAttribute('style', 'display: none');
 }
@@ -160,7 +160,7 @@ function starScoring() {
 let gameTimer,
 seconds = 0;
 minutes = 0;
-timer.innerHTML = 'Time: min  '+ minutes+'  '+ 'sec.  '+ seconds+'  ';//default variable for the timer
+timer.innerHTML = 'Time: min '+ minutes+' '+ 'sec.  '+ seconds+' ';//default variable for the timer
 //Start Timer
 function startTimer() {
     gameTimer = setInterval(function() {

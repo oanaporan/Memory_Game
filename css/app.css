@@ -107,8 +107,8 @@ h1 {
 .score-panel .stars {
     color: #bf6c5d;
     margin: 0;
-    padding-right: 0.5em;
-    padding-left: 0.5em;
+    padding-right: 0.2em;
+    padding-left: 0.2em;
     display: inline-block;
     margin: 0 1.5px 0 0;
 }
