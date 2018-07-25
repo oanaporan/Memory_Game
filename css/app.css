@@ -131,7 +131,7 @@ h1 {
  * Styles for the Message Panel when game is over
  */
 .message {
- 
+    display: none;
     width: 660px;
     min-height: 680px;
     margin-top: 40px;

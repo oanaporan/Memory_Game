@@ -106,7 +106,7 @@ function addMoves() {
 function gameOver() {
     setTimeout(function () {
         if (matchingCards.length === icons.length) {
-            message.setAttribute('style', 'display: flex');
+            message.setAttribute('style', 'display: inline');
           stopTimer();
         }
            }, 400);
