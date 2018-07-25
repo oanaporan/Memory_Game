@@ -103,16 +103,6 @@ function addMoves() {
     moves ++ ;
     movesCounter.innerHTML= moves;
         }
-//Game Over
-function gameOver() {
-    setTimeout(function () {
-        if (matchingCards.length === icons.length) {
-            message.setAttribute('style', 'display: inline');
-          stopTimer();
-        }
-           }, 400);
-    }
-
 
 //Restart game
 restart.addEventListener('click', restartGame);
@@ -148,7 +138,7 @@ function restartGame() {
 }
 
 //Stars Scoring
-const star = '<li><i class="fa fa-star"></i></li>';
+let star = '<li><i class="fa fa-star"></i></li>';
 function starScoring() {
     switch(moves) {
         //if player makes more than 16 moves then reduce star rating to 2 out of 3
@@ -183,9 +173,23 @@ function startTimer() {
 function stopTimer() {
     clearInterval(gameTimer);
 }
-//New Game button from the congradulations module
+
+//Game Over
+document.querySelector('#finalMoves').innerHTML = moves;
+document.querySelector('#finalTime').innerHTML = minutes + seconds;
+document.querySelector('#starScores').innerHTML = score.innerHTML;
+function gameOver() {
+    setTimeout(function () {
+        if (matchingCards.length === icons.length) {
+            message.setAttribute('style', 'display: inline');
+          stopTimer();
+        }
+           }, 400);
+    }
+
+//NewGame button from the congradulations module
 const newGame = document.querySelector('.newGame');
-newGame.addEventListener('click', startGame);
+newGame.addEventListener('click', restartGame);
 
 //Start Game on load
 startGame();
