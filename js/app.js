@@ -117,6 +117,18 @@ function gameOver() {
 //Restart game
 restart.addEventListener('click', restartGame);
 function restartGame() {
+    //stop timer
+    stopTimer();
+    //reset timer
+    minutes = 0;
+    seconds = 0;
+    //reset firstclick and start timer
+    firstClick = true;
+    if (firstClick) {
+        startTimer();
+        firstClick = false;
+    }
+    timer.innerHTML = 'Time: min '+ minutes+' '+ 'sec. '+ seconds+' ';
     openCards = [];
     //clean deck of cards
     deck.innerHTML = '';
@@ -131,16 +143,6 @@ function restartGame() {
     matchingCards = [];
     //reset the star scoring
     score.innerHTML = star + star + star;
-    //start timer
-    stopTimer();
-    minutes = 0;
-    seconds = 0;
-    firstClick = true;
-    if (firstClick) {
-        startTimer();
-        firstClick = false;
-    }
-    timer.innerHTML = 'Time: min '+ minutes+' '+ 'sec. '+ seconds+' ';
     //do not display the game over message if the restart game is called from it
     message.setAttribute('style', 'display: none');
 }
