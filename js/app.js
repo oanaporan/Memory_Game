@@ -26,7 +26,7 @@ const message = document.querySelector('.message');
 function startGame () {
     shuffle(icons);
     displayCards();
-}  
+}
 // Shuffle function from http://stackoverflow.com/a/2450976
 function shuffle(icons) {
     var currentIndex = icons.length, temporaryValue, randomIndex;
@@ -50,10 +50,10 @@ function displayCards() {
         deck.appendChild(card);
         card.addEventListener('click', flipCard);
 }
-    } 
+    }
         //Flip card
-        function flipCard() { 
-            this.classList.add('open','show');//show card 
+        function flipCard() {
+            this.classList.add('open','show');//show card
             openCards.push(this);//add opened card to the openCards array
             checkMatch();
             starScoring();
@@ -62,7 +62,7 @@ function displayCards() {
                 firstClick = false;
             }
         }
-        //Check if cards match 
+        //Check if cards match
         function checkMatch() {
             let firstCard = openCards[0];
             let secondCard = openCards[1];
@@ -92,7 +92,7 @@ function displayCards() {
                 }
             //If there is only one card open, then add it to the open cards array
             } else {
-                openCards.push(this);    
+                openCards.push(this);
             }
             gameOver();
         }
@@ -112,7 +112,7 @@ function gameOver() {
            }, 400);
     }
 
-  
+
 //Restart game
 restart.addEventListener('click', restartGame);
 function restartGame() {
@@ -128,7 +128,7 @@ function restartGame() {
     //clear the matching cards array
     matchingCards = [];
     //reset the star scoring
-    score.innerHTML = star + star + star;    
+    score.innerHTML = star + star + star;
     //start timer
     stopTimer();
     minutes = 0;
@@ -148,7 +148,7 @@ const star = '<li><i class="fa fa-star"></i></li>';
 function starScoring() {
     switch(moves) {
         //if player makes more than 16 moves then reduce star rating to 2 out of 3
-        case 16: score.innerHTML = star + star; 
+        case 16: score.innerHTML = star + star;
         break;
         //if player makes more than 22 moves then reduce star rating to 1 out of 3
         case 22: score.innerHTML = star;
@@ -172,7 +172,7 @@ function startTimer() {
         }
         // Update the timer with the new time
     timer.innerHTML = 'Timer: min.  '+ minutes+'  '+ 'sec.  '+ seconds;
-    }, 1000);  
+    }, 1000);
 }
 
 //Stop Timer
