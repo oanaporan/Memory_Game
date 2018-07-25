@@ -37,5 +37,5 @@ Onclick function reveals a card, adds it to an array of open cards them checks i
 
 
 ### Code
-Manipulating the DOM with Vanilla JS, altered the HTML and styled the game.
-Font-awesome and Google fonts used: 'Nunito', sans-serif.
+* Manipulating the DOM with Vanilla JS, altered the HTML and styled the game.
+* Font-awesome and Google fonts used: 'Nunito', sans-serif.
