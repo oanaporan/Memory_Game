@@ -1,0 +1,21 @@
+/* Responsive layout - makes the four columns of cards into two columns of cards and six rows of cards for medium screens/tablets. */
+@media screen and (max-width: 680px) {
+    .deck {
+        width: 90%;
+        height: 90%;
+        justify-content: space-between;     
+    }
+
+    .deck .card {
+        width: 30%;
+        margin-bottom: 10px;
+    }
+  }
+
+/*Responsive layout - makes the three columns of cards into two colums of cards and eight rows of cards for small screens/mobile.*/
+@media screen and (max-width: 500px) {
+    .deck .card {
+        width: 47%;
+        margin-bottom: 10px;
+    }
+  }
