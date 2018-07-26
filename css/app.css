@@ -119,9 +119,14 @@ h1 {
 }
 
 .score-panel .restart {
+    height: 40px;
+    width: 40px;
     float: right;
     cursor: pointer;
     background: #588c72;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 1.5em;
 }
 .score-panel .timer {
     display: inline-block;
@@ -131,7 +136,7 @@ h1 {
  * Styles for the Message Panel when game is over
  */
 .message {
-    
+    display: none;
     width: 660px;
     min-height: 680px;
     margin-top: 40px;

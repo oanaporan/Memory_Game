@@ -10,6 +10,10 @@
         width: 30%;
         margin-bottom: 10px;
     }
+    .score-panel .restart {
+        height: 48px;
+        width: 48px;
+    }
   }
 
 /*Responsive layout - makes the three columns of cards into two colums of cards and eight rows of cards for small screens/mobile.*/
