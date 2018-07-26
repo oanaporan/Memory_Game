@@ -175,13 +175,13 @@ function stopTimer() {
 }
 
 //Game Over
-document.querySelector('#finalMoves').innerHTML = moves;
-document.querySelector('#finalTime').innerHTML = minutes + seconds;
-document.querySelector('#starScores').innerHTML = score.innerHTML;
 function gameOver() {
     setTimeout(function () {
         if (matchingCards.length === icons.length) {
-            message.setAttribute('style', 'display: inline');
+            document.querySelector('#finalMoves').innerHTML = moves;
+            document.querySelector('#finalTime').innerHTML = minutes + seconds;
+            document.querySelector('#starScores').innerHTML = score.innerHTML;
+           message.setAttribute('style', 'display: inline');
           stopTimer();
         }
            }, 400);
